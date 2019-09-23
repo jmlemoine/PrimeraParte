@@ -1,12 +1,11 @@
 package com.example.practica1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class activity_signup extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,6 +13,10 @@ public class activity_signup extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
     }
 
+    public void LogIn(View view){
+        Intent login = new Intent(this, MainActivity.class);
+        startActivity(login);
 
+    }
 
 }
