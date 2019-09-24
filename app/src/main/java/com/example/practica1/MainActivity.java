@@ -20,4 +20,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /*public void PassWord(View view){
+        Intent password = new Intent(this, PasswordActivity.class);
+        startActivity(password);
+
+    }*/
+
 }
