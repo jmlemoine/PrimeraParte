@@ -85,4 +85,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon" />
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="43dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtClave"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/user" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
