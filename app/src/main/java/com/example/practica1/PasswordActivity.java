@@ -19,5 +19,4 @@ public class PasswordActivity extends AppCompatActivity {
 
     }
 
-
 }
