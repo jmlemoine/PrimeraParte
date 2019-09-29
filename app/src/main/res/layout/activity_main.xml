@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#531EAA"
     tools:context=".MainActivity">
 
     <Button
@@ -12,6 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="55dp"
         android:layout_marginBottom="36dp"
+        android:background="#E9D308"
+        android:onClick="Inicio"
         android:text="Entrar"
         app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,6 +27,7 @@
         android:id="@+id/btnSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#E9D308"
         android:onClick="SignUp"
         android:text="Crear Nueva Cuenta"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,6 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
+        android:background="#E9D308"
         android:onClick="PassWord"
         android:text="¿Olvidé contraseña?"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +53,7 @@
         android:id="@+id/txtClave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="35dp"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPersonName"
@@ -60,12 +65,11 @@
         android:id="@+id/txtUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="78dp"
+        android:layout_marginTop="75dp"
         android:ems="10"
         android:hint="Usuario"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txtClave"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

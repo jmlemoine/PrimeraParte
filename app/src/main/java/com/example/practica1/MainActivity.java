@@ -31,4 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void Inicio(View view){
+        Intent inicio = new Intent(this,Inicio.class);
+        startActivity(inicio);
+
+    }
+
 }
