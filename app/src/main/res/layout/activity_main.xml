@@ -87,14 +87,22 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="43dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/txtClave"
+        android:layout_width="35dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="167dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/user" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="32dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:srcCompat="@drawable/password" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
