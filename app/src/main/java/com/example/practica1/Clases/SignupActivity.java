@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.practica1.Conexion.ConexionSQLiteHelper;
@@ -19,6 +20,7 @@ public class SignupActivity extends AppCompatActivity {
 
     EditText campoNombre, campoUsuario, campoEmail, campoClave, campoConfClv;
     Switch campoAdmin;
+    TextView campoAdminn;
     EditText campoNumero, campoFecha;
 
     @Override
@@ -33,6 +35,7 @@ public class SignupActivity extends AppCompatActivity {
         campoConfClv = (EditText)findViewById(R.id.txtConfClave);
 
         campoAdmin = (Switch)findViewById(R.id.switchAdmin);
+        campoAdminn = (TextView)findViewById(R.id.txtAdmin);
 
         campoNumero = (EditText)findViewById(R.id.txtNumero);
         campoFecha = (EditText)findViewById(R.id.txtFecha);
@@ -52,8 +55,21 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
+    public void swtAdmin(View view){
+        if(view.getId() == R.id.switchAdmin){
+            if(campoAdmin.isChecked()){
+                campoAdminn.setText("Es Admin");
+            }
+            else {
+                campoAdminn.setText("NO es Admin");
+            }
+        }
+
+    }
+
     public void signUpSQL(){
 
+        campoNombre = (EditText)findViewById(R.id.txtNombre);
         ConexionSQLiteHelper con = new ConexionSQLiteHelper(this, "bdECommercer", null, 1);
         SQLiteDatabase db = con.getWritableDatabase();
         String insert = "INSERT INTO "
@@ -63,7 +79,7 @@ public class SignupActivity extends AppCompatActivity {
                 +Utilidades.campoEmail+", "
                 +Utilidades.campoClave+", "
                 +Utilidades.campoConfClv+", "
-                +Utilidades.campoAdmin+", "
+                +Utilidades.campoAdminn+", "
                 +Utilidades.campoNumero+", "
                 +Utilidades.campoFecha+") " +
                 "values ('"
@@ -72,11 +88,15 @@ public class SignupActivity extends AppCompatActivity {
                 "', '"+campoEmail.getText().toString()+
                 "', '"+campoClave.getText().toString()+
                 "', '"+campoConfClv.getText().toString()+
-                "', '"+campoAdmin.getText().toString()+
+                "', '"+campoAdminn.getText().toString()+
                 "', '"+campoNumero.getText().toString()+
                 "', '"+campoFecha.getText().toString()+"')";
 
         db.execSQL(insert);
+
+        Toast.makeText(getApplicationContext(), "Usuario: "+campoNombre.getText().toString(), Toast.LENGTH_SHORT).show();
+        Intent intSU = new Intent(this, LoginActivity.class);
+        startActivity(intSU);
         db.close();
 
     }
@@ -93,7 +113,7 @@ public class SignupActivity extends AppCompatActivity {
         values.put(Utilidades.campoEmail, campoEmail.getText().toString());
         values.put(Utilidades.campoClave, campoClave.getText().toString());
         values.put(Utilidades.campoConfClv, campoConfClv.getText().toString());
-        values.put(Utilidades.campoAdmin, campoAdmin.getText().toString());
+        values.put(Utilidades.campoAdminn, campoAdminn.getText().toString());
         values.put(Utilidades.campoNumero, campoNumero.getText().toString());
         values.put(Utilidades.campoFecha, campoFecha.getText().toString());
 

@@ -168,10 +168,12 @@
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="32dp"
+        android:layout_width="0dp"
         android:layout_height="33dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="2dp"
+        android:layout_marginEnd="179dp"
+        app:layout_constraintEnd_toStartOf="@+id/txtAdmin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
         app:srcCompat="@drawable/admin" />
@@ -190,17 +192,6 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/phone" />
 
-    <Switch
-        android:id="@+id/switchAdmin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Administrador"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtConfClave" />
-
     <ImageView
         android:id="@+id/imageView13"
         android:layout_width="54dp"
@@ -210,5 +201,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView12"
         app:srcCompat="@drawable/date" />
+
+    <Switch
+        android:id="@+id/switchAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:hint="Admin"
+        android:onClick="swtAdmin"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.308"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtConfClave" />
+
+    <TextView
+        android:id="@+id/txtAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="12dp"
+        android:hint="No es Admin"
+        app:layout_constraintStart_toEndOf="@+id/imageView11"
+        app:layout_constraintTop_toBottomOf="@+id/txtConfClave" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

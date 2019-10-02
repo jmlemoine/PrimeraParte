@@ -9,6 +9,7 @@ public class Utilidades {
     public static final String campoClave = "clave";
     public static final String campoConfClv = "confclv";
     public static final String campoAdmin = "admin";
+    public static final String campoAdminn = "admin";
     public static final String campoNumero = "numero";
     public static final String campoFecha = "fecha";
 
