@@ -1,19 +1,20 @@
-package com.example.practica1;
+package com.example.practica1.Clases;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.practica1.R;
+
+public class LoginActivity extends AppCompatActivity {
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
 
 
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Inicio(View view){
-        Intent inicio = new Intent(this,Inicio.class);
+        Intent inicio = new Intent(this, InicioActivity.class);
         startActivity(inicio);
 
     }

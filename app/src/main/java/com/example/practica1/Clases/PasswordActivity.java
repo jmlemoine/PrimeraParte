@@ -1,9 +1,11 @@
-package com.example.practica1;
+package com.example.practica1.Clases;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.practica1.R;
 
 public class PasswordActivity extends AppCompatActivity {
 
@@ -14,7 +16,7 @@ public class PasswordActivity extends AppCompatActivity {
     }
 
     public void LogIn(View view) {
-        Intent login = new Intent(this, MainActivity.class);
+        Intent login = new Intent(this, LoginActivity.class);
         startActivity(login);
 
     }
