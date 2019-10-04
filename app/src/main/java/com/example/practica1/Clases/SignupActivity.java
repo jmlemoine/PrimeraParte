@@ -40,6 +40,8 @@ public class SignupActivity extends AppCompatActivity {
         campoNumero = (EditText)findViewById(R.id.txtNumero);
         campoFecha = (EditText)findViewById(R.id.txtFecha);
 
+        campoAdminn.setText("NO es Admin");
+
 
     }
 
