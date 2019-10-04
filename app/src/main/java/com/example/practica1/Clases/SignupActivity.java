@@ -94,7 +94,7 @@ public class SignupActivity extends AppCompatActivity {
 
         db.execSQL(insert);
 
-        Toast.makeText(getApplicationContext(), "Usuario: "+campoNombre.getText().toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Usuario: "+campoUsuario.getText().toString(), Toast.LENGTH_SHORT).show();
         Intent intSU = new Intent(this, LoginActivity.class);
         startActivity(intSU);
         db.close();
