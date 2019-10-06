@@ -79,10 +79,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String u = usuario.getText().toString();
                 String p = clave.getText().toString();
                 if(con.Login(u, p)==1){
-                Usuario us = con.getUsuario(u, p);
-                Toast.makeText(this, "Datos Correctos", Toast.LENGTH_LONG).show();
+                /*Usuario us = con.getUsuario(u, p);
+                Toast.makeText(this, "Datos Correctos", Toast.LENGTH_LONG).show();*/
                 Intent inicio = new Intent(this, InicioActivity.class);
-                inicio.putExtra("Id", us.getId());
+                //inicio.putExtra("Id", us.getId());
                 startActivity(inicio);
                 finish();
 
