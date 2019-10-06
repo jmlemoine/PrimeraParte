@@ -2,14 +2,12 @@ package com.example.practica1.Entidades;
 
 public class Usuario {
 
-    private String nombre;
-    private String usuario;
-    private String email;
-    private String clave;
-    private String confclv;
-    private String admin;
-    private String numero;
-    private String fecha;
+    int id;
+    String nombre, usuario, email, clave, confclv, admin, numero, fecha;
+
+    public Usuario(){
+
+    }
 
     public Usuario(String nombre, String usuario, String email, String clave, String confclv, String admin, String numero, String fecha) {
         this.nombre = nombre;
@@ -20,6 +18,42 @@ public class Usuario {
         this.admin = admin;
         this.numero = numero;
         this.fecha = fecha;
+    }
+
+    public boolean isNull(){
+        if(nombre.equals("") && usuario.equals("") && email.equals("") && clave.equals("") && confclv.equals("") && admin.equals("") && numero.equals("") && fecha.equals("")){
+            return false;
+
+        }
+        else{
+            return true;
+
+        }
+
+    }
+
+
+    public String toString(){
+        return "Usuario{"+
+                "Id" + id +
+                ", Nombre='" + nombre + '\'' +
+                ", Usuario='" + usuario + '\'' +
+                ", Email='" + email + '\'' +
+                ", Clave='" + clave + '\'' +
+                ", Confirmar='" + confclv + '\'' +
+                ", Admin='" + admin + '\'' +
+                ", Numero='" + numero + '\'' +
+                ", Fecha='" + fecha + '\'' +
+                '}';
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {

@@ -4,24 +4,31 @@ import android.content.ContentValues;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.practica1.Conexion.ConexionSQLiteHelper;
+import com.example.practica1.Entidades.Usuario;
+import com.example.practica1.Entidades.conUsuario;
 import com.example.practica1.R;
 import com.example.practica1.Utilidades.Utilidades;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity /*implements View.OnClickListener*/{
 
     EditText campoNombre, campoUsuario, campoEmail, campoClave, campoConfClv;
     Switch campoAdmin;
     TextView campoAdminn;
     EditText campoNumero, campoFecha;
+    Button signup, login;
+    conUsuario con;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +47,17 @@ public class SignupActivity extends AppCompatActivity {
         campoNumero = (EditText)findViewById(R.id.txtNumero);
         campoFecha = (EditText)findViewById(R.id.txtFecha);
 
+        /*signup = (Button)findViewById(R.id.btnSignup);
+        login = (Button)findViewById(R.id.btnLogin);*/
+
+        /*signup.setOnClickListener(this);
+        login.setOnClickListener(this);*/
+
+        con = new conUsuario(this);
+
         campoAdminn.setText("NO es Admin");
+
+
 
 
     }
@@ -51,11 +68,44 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
-    public void Registrar(View view){
-        //signUp();
-        signUpSQL();
+
+
+    public void SignUp(View view){
+        Usuario u = new Usuario();
+        u.setNombre(campoNombre.getText().toString());
+        u.setUsuario(campoUsuario.getText().toString());
+        u.setEmail(campoEmail.getText().toString());
+        u.setClave(campoClave.getText().toString());
+        u.setConfclv(campoConfClv.getText().toString());
+        u.setAdmin(campoAdminn.getText().toString());
+        u.setNumero(campoNumero.getText().toString());
+        u.setFecha(campoFecha.getText().toString());
+        if(!u.isNull()){
+            Toast.makeText(this, "ERROR: Campos Vacíos", Toast.LENGTH_LONG).show();
+
+        }
+        else if(con.crearUsuario(u)){
+            Toast.makeText(this, "Usuario Registrado", Toast.LENGTH_LONG).show();
+            Intent login = new Intent(this, LoginActivity.class);
+            startActivity(login);
+
+
+        }
+        else{
+            Toast.makeText(this, "Usuario ya registrado, debe poner otro", Toast.LENGTH_LONG).show();
+
+        }
+
+        Intent login = new Intent(this, LoginActivity.class);
+        startActivity(login);
 
     }
+
+    /*public void Registrar(View view){
+        //signUp();
+        //signUpSQL();
+
+    }*/
 
     public void swtAdmin(View view){
         if(view.getId() == R.id.switchAdmin){
@@ -69,7 +119,12 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
-    public void signUpSQL(){
+    /*@Override
+    public void onClick(View v) {
+
+    }*/
+
+    /*public void signUpSQL(){
 
         campoNombre = (EditText)findViewById(R.id.txtNombre);
         ConexionSQLiteHelper con = new ConexionSQLiteHelper(this, "bdECommercer", null, 1);
@@ -101,11 +156,9 @@ public class SignupActivity extends AppCompatActivity {
         startActivity(intSU);
         db.close();
 
-    }
+    }*/
 
-
-
-    public void signUp(){
+    /*public void signUp(){
         ConexionSQLiteHelper con = new ConexionSQLiteHelper(this, "bdECommercer", null, 1);
         SQLiteDatabase db = con.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -124,9 +177,7 @@ public class SignupActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Usuario: "+nombre, Toast.LENGTH_SHORT).show();
         db.close();
 
-
-
-    }
+    }*/
 
 
 }
