@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    /*public void ingresar(View v){
+    public void ingresar(View v){
         DBHelper admin=new DBHelper(this,"BDbdECommercer",null,1);
         SQLiteDatabase db=admin.getWritableDatabase();
         String user=usuario.getText().toString();
@@ -72,28 +72,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             }
         }
-    }*/
+    }
 
     public void onClick(View v){
         switch (v.getId()){
             case R.id.btnLogin:
-                /*String u = usuario.getText().toString();
+                String u = usuario.getText().toString();
                 String p = clave.getText().toString();
-                if(con.Login(u, p)==1){*/
-                /*Usuario us = con.getUsuario(u, p);
-                Toast.makeText(this, "Datos Correctos", Toast.LENGTH_LONG).show();*/
+                if(con.Login(u, p)==true){
+                Usuario us = con.getUsuario(u, p);
+                Toast.makeText(this, "Datos Correctos", Toast.LENGTH_LONG).show();
                 Intent inicio = new Intent(this, InicioActivityStart.class);
-                //inicio.putExtra("Id", us.getId());
+                inicio.putExtra("Id", us.getId());
                 startActivity(inicio);
                 finish();
 
-                /*}
+                }
                 else if(u.equals("") && p.equals("")){
                     Toast.makeText(this, "ERROR: Campos vacíos", Toast.LENGTH_LONG).show();
 
                 }else{
                     Toast.makeText(this, "Usuario o contraseña incorrecto", Toast.LENGTH_LONG).show();
-                }*/
+                }
                 break;
 
             case R.id.btnSignUp:

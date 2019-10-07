@@ -79,13 +79,13 @@ public class conUsuario {
         return listUsuario;
     }
 
-    public int Login(String u, String p){
-        int a = 0;
+    public boolean Login(String u, String p){
+        boolean a = false;
         Cursor cur = sql.rawQuery("SELECT * FROM Usuario", null);
         if(cur!=null && cur.moveToFirst()){
             do {
-                if(cur.getString(1).equals(u) && cur.getString(2).equals(p)){
-                    a++;
+                if(cur.getString(cur.getColumnIndex("usuario")).equals(u) && cur.getString(cur.getColumnIndex("clave")).equals(p)){
+                    a = true;
                 }
             }while (cur.moveToNext());
         }
