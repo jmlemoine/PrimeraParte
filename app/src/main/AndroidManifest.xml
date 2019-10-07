@@ -9,9 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Clases.InicioActivity"></activity>
-        <activity android:name=".Clases.PasswordActivity"></activity>
-        <activity android:name=".Clases.SignupActivity"></activity>
+        <activity
+            android:name=".Clases.Inicio.InicioActivityStart"
+            android:label="@string/title_activity_inicio_start"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Clases.InicioActivity" />
+        <activity android:name=".Clases.PasswordActivity" />
+        <activity android:name=".Clases.SignupActivity" />
         <activity android:name=".Clases.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
