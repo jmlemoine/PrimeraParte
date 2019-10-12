@@ -12,12 +12,12 @@ public class DBHelper  extends SQLiteOpenHelper{
 
     @Override    public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS Usuario(id integer primary key autoincrement, nombre text, usuario text, email text, clave text, confclv text, admin text, numero text, fecha text)");
-        //db.execSQL("insert into Usuario values('admin','admin')");
+
     }
 
     @Override    public void onUpgrade(SQLiteDatabase db, int
             oldVersion, int newVersion) {
         db.execSQL("CREATE TABLE IF NOT EXISTS Usuario(id integer primary key autoincrement, nombre text, usuario text, email text, clave text, confclv text, admin text, numero text, fecha text)");
-        //db.execSQL("insert into Usuario values('admin','admin')");
+
     }
 }

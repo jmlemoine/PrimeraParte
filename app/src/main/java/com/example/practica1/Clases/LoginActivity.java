@@ -51,18 +51,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String user=usuario.getText().toString();
         String pass=clave.getText().toString();
         fila=db.rawQuery("select usuario,clave from Usuario where usuario='"+user+"' and clave='"+pass+"'",null);
-                //preguntamos si el cursor tiene algun valor almacenado
         while(fila.moveToFirst()==true){
-            //capturamos los valores del cursos y lo almacenamos en variable
             String usua=fila.getString(0);
             String contra=fila.getString(1);
-            //preguntamos si los datos ingresados son iguales
             if (user.equals(usua)&&pass.equals(contra)){
-                //si son iguales entonces vamos a otra ventana
-                //Menu es una nueva actividad empty
                 Intent ven=new Intent(this,InicioActivity.class);
                 startActivity(ven);
-                //limpiamos las las cajas de texto
                 usuario.setText("");
                 clave.setText("");
 
@@ -108,46 +102,4 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    /*public void SignUp(View view){
-        Intent signup = new Intent(this, SignupActivity.class);
-        startActivity(signup);
-
-    }
-
-    public void PassWord(View view){
-        Intent password = new Intent(this, PasswordActivity.class);
-        startActivity(password);
-
-    }*/
-
-
-
-    /*public void LogIn(View view){
-        String u = usuario.getText().toString();
-        String p = clave.getText().toString();
-        if(u.equals("") && p.equals("")){
-            Toast.makeText(this, "ERROR: Campos vacíos", Toast.LENGTH_LONG).show();
-
-        }
-        else if(con.Login(u, p) == 1){
-            Usuario us = con.getUsuario(u, p);
-            Toast.makeText(this, "Datos Correctos", Toast.LENGTH_LONG).show();
-            Intent inicio = new Intent(this, InicioActivity.class);
-            inicio.putExtra("Id", us.getId());
-            startActivity(inicio);
-            //finish();
-
-        }
-        else{
-            Toast.makeText(this, "Usuario o contraseña incorrecto", Toast.LENGTH_LONG).show();
-        }
-
-
-
-    }*/
-
-    /*@Override
-    public void onClick(View v) {
-
-    }*/
 }

@@ -47,12 +47,6 @@ public class SignupActivity extends AppCompatActivity /*implements View.OnClickL
         campoNumero = (EditText)findViewById(R.id.txtNumero);
         campoFecha = (EditText)findViewById(R.id.txtFecha);
 
-        /*signup = (Button)findViewById(R.id.btnSignup);
-        login = (Button)findViewById(R.id.btnLogin);*/
-
-        /*signup.setOnClickListener(this);
-        login.setOnClickListener(this);*/
-
         con = new conUsuario(this);
 
         campoAdminn.setText("NO es Admin");
@@ -101,12 +95,6 @@ public class SignupActivity extends AppCompatActivity /*implements View.OnClickL
 
     }
 
-    /*public void Registrar(View view){
-        //signUp();
-        //signUpSQL();
-
-    }*/
-
     public void swtAdmin(View view){
         if(view.getId() == R.id.switchAdmin){
             if(campoAdmin.isChecked()){
@@ -118,66 +106,5 @@ public class SignupActivity extends AppCompatActivity /*implements View.OnClickL
         }
 
     }
-
-    /*@Override
-    public void onClick(View v) {
-
-    }*/
-
-    /*public void signUpSQL(){
-
-        campoNombre = (EditText)findViewById(R.id.txtNombre);
-        ConexionSQLiteHelper con = new ConexionSQLiteHelper(this, "bdECommercer", null, 1);
-        SQLiteDatabase db = con.getWritableDatabase();
-        String insert = "INSERT INTO "
-                +Utilidades.tablaUsuario+" ("
-                +Utilidades.campoNombre+", "
-                +Utilidades.campoUsuario+", "
-                +Utilidades.campoEmail+", "
-                +Utilidades.campoClave+", "
-                +Utilidades.campoConfClv+", "
-                +Utilidades.campoAdminn+", "
-                +Utilidades.campoNumero+", "
-                +Utilidades.campoFecha+") " +
-                "values ('"
-                +campoNombre.getText().toString()+
-                "', '"+campoUsuario.getText().toString()+
-                "', '"+campoEmail.getText().toString()+
-                "', '"+campoClave.getText().toString()+
-                "', '"+campoConfClv.getText().toString()+
-                "', '"+campoAdminn.getText().toString()+
-                "', '"+campoNumero.getText().toString()+
-                "', '"+campoFecha.getText().toString()+"')";
-
-        db.execSQL(insert);
-
-        Toast.makeText(getApplicationContext(), "Usuario: "+campoUsuario.getText().toString(), Toast.LENGTH_SHORT).show();
-        Intent intSU = new Intent(this, LoginActivity.class);
-        startActivity(intSU);
-        db.close();
-
-    }*/
-
-    /*public void signUp(){
-        ConexionSQLiteHelper con = new ConexionSQLiteHelper(this, "bdECommercer", null, 1);
-        SQLiteDatabase db = con.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(Utilidades.campoNombre, campoNombre.getText().toString());
-        values.put(Utilidades.campoUsuario, campoUsuario.getText().toString());
-        values.put(Utilidades.campoEmail, campoEmail.getText().toString());
-        values.put(Utilidades.campoClave, campoClave.getText().toString());
-        values.put(Utilidades.campoConfClv, campoConfClv.getText().toString());
-        values.put(Utilidades.campoAdminn, campoAdminn.getText().toString());
-        values.put(Utilidades.campoNumero, campoNumero.getText().toString());
-        values.put(Utilidades.campoFecha, campoFecha.getText().toString());
-
-        Long nombre = db.insert(Utilidades.tablaUsuario, Utilidades.campoNombre, values);
-
-        Toast.makeText(getApplicationContext(), "Usuario: "+nombre, Toast.LENGTH_SHORT).show();
-        db.close();
-
-    }*/
-
 
 }
