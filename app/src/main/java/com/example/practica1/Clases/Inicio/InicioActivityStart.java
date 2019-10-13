@@ -2,12 +2,20 @@ package com.example.practica1.Clases.Inicio;
 
 import android.os.Bundle;
 
+import com.example.practica1.Clases.Inicio.ui.gallery.GalleryFragment;
+import com.example.practica1.Clases.Inicio.ui.slideshow.SlideshowFragment;
+import com.example.practica1.Clases.LoginActivity;
 import com.example.practica1.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -21,8 +29,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.content.Intent;
 
-public class InicioActivityStart extends AppCompatActivity {
+public class InicioActivityStart extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener/*, GalleryFragment.OnFragmentInteractionListener*/ {
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -70,4 +79,75 @@ public class InicioActivityStart extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    /*@SuppressWarnings("StatementWithEmptyBody")
+    @Override*/
+    /*public boolean onNavigationItemSelectedListener(MenuItem item){
+        int id = item.getItemId();
+        Fragment logout = null;
+        boolean activity = false;
+
+        if(id == R.id.nav_categories) {
+            logout = new GalleryFragment();
+            activity = true;
+
+
+        }
+
+        if(activity == true){
+            getSupportFragmentManager().beginTransaction().replace(R.id.drawer_layout, logout).commit();
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+
+        return true;
+
+    }*/
+
+
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        /*Fragment frag = null;
+        boolean activity = false;*/
+
+        if(id == R.id.nav_categories) {
+            fragmentManager.beginTransaction().replace(R.id.contenedor, new GalleryFragment()).commit();
+
+            /*frag = new GalleryFragment();
+            activity = true;*/
+
+        }
+        /*else if(id == R.id.nav_products){
+            frag = new SlideshowFragment();
+            activity = true;
+        }*/
+
+        /*if(activity == true){
+            getSupportFragmentManager().beginTransaction().replace(R.id.drawer_layout, frag).commit();
+
+        }*/
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    /*@Override
+    public void onFragmentInteraction(Url url){
+
+    }*/
+
 }
