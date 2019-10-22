@@ -31,9 +31,13 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.content.Intent;
 
+import static java.lang.Thread.sleep;
+
 public class InicioActivityStart extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener/*, GalleryFragment.OnFragmentInteractionListener*/ {
 
     private AppBarConfiguration mAppBarConfiguration;
+
+    LoginActivity la;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +45,15 @@ public class InicioActivityStart extends AppCompatActivity  implements Navigatio
         setContentView(R.layout.activity_inicio_start);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        la = new LoginActivity();
+        try {
+            sleep(3000);
 
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //la.checkConnection();
 
 
         FloatingActionButton fab = findViewById(R.id.fab);

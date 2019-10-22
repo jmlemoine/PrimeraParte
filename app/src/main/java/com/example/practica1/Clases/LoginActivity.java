@@ -23,20 +23,20 @@ import com.example.practica1.Entidades.conUsuario;
 import com.example.practica1.R;
 import com.example.practica1.Utilidades.Utilidades;
 
+import static java.lang.Thread.sleep;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     EditText usuario, clave;
     Button login, signup, passw;
     private Cursor fila;
     conUsuario con;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        checkConnection();
+        //checkConnection();
 
         usuario = (EditText)findViewById(R.id.txtUsuario);
         clave = (EditText)findViewById(R.id.txtClave);
@@ -59,12 +59,36 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         NetworkInfo activeNetwork = manager.getActiveNetworkInfo();
 
+        String u = usuario.getText().toString();
+        String p = clave.getText().toString();
+        Usuario us = con.getUsuario(u, p);
+
+
         if (null != activeNetwork){
             if(activeNetwork.getType() == ConnectivityManager.TYPE_WIFI){
+                Intent inicio = new Intent(this, InicioActivityStart.class);
+                inicio.putExtra("Id", us.getId());
+                startActivity(inicio);
+                finish();
+                try {
+                    sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 Toast.makeText(this, "WiFi Activado", Toast.LENGTH_SHORT).show();
+
 
             }
             if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE){
+
+                /*inicio.putExtra("Id", us.getId());
+                startActivity(inicio);
+                finish();*/
+                try {
+                    sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 Toast.makeText(this, "Red de Datos Activa", Toast.LENGTH_SHORT).show();
 
             }
@@ -82,13 +106,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btnLogin:
                 String u = usuario.getText().toString();
                 String p = clave.getText().toString();
-                if(con.Login(u, p)==true){
                 Usuario us = con.getUsuario(u, p);
+                if(con.Login(u, p)==true){
                 Toast.makeText(this, "Datos Correctos", Toast.LENGTH_LONG).show();
-                Intent inicio = new Intent(this, InicioActivityStart.class);
+                try {
+                    sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                checkConnection();
+                /*Intent inicio = new Intent(this, InicioActivityStart.class);
                 inicio.putExtra("Id", us.getId());
                 startActivity(inicio);
-                finish();
+                finish();*/
 
                 }
                 else if(u.equals("") && p.equals("")){
