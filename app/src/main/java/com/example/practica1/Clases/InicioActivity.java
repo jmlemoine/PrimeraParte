@@ -40,10 +40,10 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
         drawer.addDrawerListener(toggle);
         toggle.syncState();*/
 
-        if (savedInstanceState == null){
+        /*if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
-        }
+        }*/
 
 
     }
@@ -53,6 +53,7 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
         switch (item.getItemId()){
             case R.id.nav_home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+                break;
             case R.id.nav_categories:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CategoryFragment()).commit();
                 break;
