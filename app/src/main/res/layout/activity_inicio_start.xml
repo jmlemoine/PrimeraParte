@@ -15,7 +15,7 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_inicio_activity_start"
-        app:menu="@menu/activity_inicio_start_drawer" />
+        app:menu="@menu/activity_inicio_start_drawer"/>
 
     <include
         layout="@layout/app_bar_inicio_activity_start"

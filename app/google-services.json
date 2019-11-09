@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "138666601325",
+    "firebase_url": "https://ecommerce-2cb0f.firebaseio.com",
+    "project_id": "ecommerce-2cb0f",
+    "storage_bucket": "ecommerce-2cb0f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138666601325:android:48d25c9c5004254292c864",
+        "android_client_info": {
+          "package_name": "com.example.practica1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138666601325-auge7cvgqoqihkia7bc2je03vgo8fpsm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaLo1CRlBthuYdiAOMrblyj0jq3N24e8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138666601325-auge7cvgqoqihkia7bc2je03vgo8fpsm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

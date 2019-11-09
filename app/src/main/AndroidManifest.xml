@@ -2,11 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.practica1">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,10 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Clases.Inicio.ui.logout.LogoutFragment"></activity>
+        <activity android:name=".Clases.Inicio.ui.send.SendFragment"></activity>
+        <activity android:name=".Clases.Inicio.ui.share.ShareFragment"></activity>
+        <activity android:name=".Clases.Inicio.ui.manage.ManageFragment"></activity>
+        <activity android:name=".Clases.Inicio.ui.slideshow.SlideshowFragment"></activity>
+        <activity android:name=".Clases.Inicio.ui.gallery.GalleryFragment"></activity>
+        <activity android:name=".Clases.Inicio.ui.home.HomeFragment"></activity>
         <activity
             android:name=".Clases.Inicio.InicioActivityStart"
             android:label="@string/title_activity_inicio_start"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Clases.InicioActivity" />
         <activity android:name=".Clases.PasswordActivity" />
         <activity android:name=".Clases.SignupActivity" />
@@ -29,5 +31,9 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

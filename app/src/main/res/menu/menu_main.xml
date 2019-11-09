@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-tools:context=".Clases.LoginActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="nav_view">
 
-<item
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Inicio" />
+
+        <item android:id="@+id/nav_categories"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Categorías" />
+
+        <item android:id="@+id/nav_products"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Productos" />
+
+        <item android:id="@+id/nav_tools"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Seguimiento Despacho" />
+
+        <item android:id="@+id/nav_share"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Ayuda" />
+
+        <item android:id="@+id/nav_send"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Perfil" />
+
+        <item android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Cerrar Sesion" />
+
+
+    </group>
+
+
+<!--<item
     android:id="@+id/action_favorite"
     android:orderInCategory="300"
     android:title="User"
     android:icon="@drawable/icon"
-    app:showAsAction="ifRoom"></item>
+    app:showAsAction="ifRoom"></item>-->
 
 </menu>

@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if (null != activeNetwork){
             if(activeNetwork.getType() == ConnectivityManager.TYPE_WIFI){
-                Intent inicio = new Intent(this, InicioActivityStart.class);
+                Intent inicio = new Intent(this, InicioActivity.class);
                 inicio.putExtra("Id", us.getId());
                 startActivity(inicio);
                 finish();
