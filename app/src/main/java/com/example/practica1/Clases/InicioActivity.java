@@ -18,6 +18,7 @@ import com.example.practica1.Clases.Inicio.ui.home.HomeFragment;
 import com.example.practica1.Clases.Inicio.ui.message.MessageFragment;
 import com.example.practica1.Clases.Inicio.ui.product.ProductFragment;
 import com.example.practica1.R;
+import com.example.practica1.SeguimientoFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class InicioActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -60,6 +61,10 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
             case R.id.nav_products:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProductFragment()).commit();
                 break;
+            case R.id.nav_seguimiento:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SeguimientoFragment()).commit();
+                break;
+
         }
 
         drawer.closeDrawer(GravityCompat.START);
