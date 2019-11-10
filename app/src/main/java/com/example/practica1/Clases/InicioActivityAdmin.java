@@ -62,7 +62,6 @@ public class InicioActivityAdmin extends AppCompatActivity implements Navigation
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SeguimientoFragment()).commit();
                 break;
             case R.id.nav_logout:
-                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LoginActivity()).commit();
                 Intent la = new Intent(this, LoginActivity.class);
                 startActivity(la);
                 break;
