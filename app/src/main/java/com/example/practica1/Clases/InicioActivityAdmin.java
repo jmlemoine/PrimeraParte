@@ -4,31 +4,28 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-
-import androidx.appcompat.widget.Toolbar;
 
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.practica1.Clases.Inicio.InicioActivityStart;
 import com.example.practica1.Clases.Inicio.ui.category.CategoryFragment;
 import com.example.practica1.Clases.Inicio.ui.home.HomeFragment;
-import com.example.practica1.Clases.Inicio.ui.message.MessageFragment;
+import com.example.practica1.Clases.Inicio.ui.logout.LogoutFragment;
 import com.example.practica1.Clases.Inicio.ui.product.ProductFragment;
 import com.example.practica1.R;
 import com.example.practica1.SeguimientoFragment;
 import com.google.android.material.navigation.NavigationView;
+import android.content.Intent;
 
-public class InicioActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class InicioActivityAdmin extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio);
+        setContentView(R.layout.activity_inicio_admin);
 
         /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
@@ -63,6 +60,11 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
                 break;
             case R.id.nav_seguimiento:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SeguimientoFragment()).commit();
+                break;
+            case R.id.nav_logout:
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LoginActivity()).commit();
+                Intent la = new Intent(this, LoginActivity.class);
+                startActivity(la);
                 break;
 
         }

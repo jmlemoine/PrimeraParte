@@ -5,7 +5,6 @@ import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -14,14 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.practica1.Clases.Inicio.InicioActivityStart;
-import com.example.practica1.Clases.LoginActivity;
-import com.example.practica1.Conexion.ConexionSQLiteHelper;
-import com.example.practica1.Entidades.DBHelper;
 import com.example.practica1.Entidades.Usuario;
 import com.example.practica1.Entidades.conUsuario;
 import com.example.practica1.R;
-import com.example.practica1.Utilidades.Utilidades;
 
 import static java.lang.Thread.sleep;
 
@@ -66,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if (null != activeNetwork){
             if(activeNetwork.getType() == ConnectivityManager.TYPE_WIFI){
-                Intent inicio = new Intent(this, InicioActivity.class);
+                Intent inicio = new Intent(this, InicioActivityAdmin.class);
                 inicio.putExtra("Id", us.getId());
                 startActivity(inicio);
                 finish();

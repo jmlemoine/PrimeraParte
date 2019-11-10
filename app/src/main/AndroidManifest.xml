@@ -20,7 +20,7 @@
             android:name=".Clases.Inicio.InicioActivityStart"
             android:label="@string/title_activity_inicio_start"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Clases.InicioActivity" />
+        <activity android:name=".Clases.InicioActivityAdmin" />
         <activity android:name=".Clases.PasswordActivity" />
         <activity android:name=".Clases.SignupActivity" />
         <activity android:name=".Clases.LoginActivity">
