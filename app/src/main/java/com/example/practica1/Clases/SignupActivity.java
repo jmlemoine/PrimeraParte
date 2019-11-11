@@ -1,15 +1,18 @@
 package com.example.practica1.Clases;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,14 +22,18 @@ import com.example.practica1.Entidades.Usuario;
 import com.example.practica1.Entidades.conUsuario;
 import com.example.practica1.R;
 import com.example.practica1.Utilidades.Utilidades;
+import com.example.practica1.Utilidades.Validacion;
 
 public class SignupActivity extends AppCompatActivity /*implements View.OnClickListener*/{
 
-    EditText campoNombre, campoUsuario, campoEmail, campoClave, campoConfClv;
-    Switch campoAdmin;
-    TextView campoAdminn;
-    EditText campoNumero, campoFecha;
-    Button signup, login;
+    private EditText campoNombre, campoUsuario, campoEmail, campoClave, campoConfClv;
+    private Switch campoAdmin;
+    private TextView campoAdminn;
+    private EditText campoNumero, campoFecha;
+    private Button signup, login;
+    private Context applicationContext;
+    private ProgressBar progressBar;
+
     conUsuario con;
 
 
@@ -54,6 +61,95 @@ public class SignupActivity extends AppCompatActivity /*implements View.OnClickL
 
 
 
+    }
+
+    private void updateUI(){
+        this.applicationContext = this;
+        this.campoNombre = (EditText) findViewById(R.id.txtNombre);
+        this.campoUsuario = (EditText) findViewById(R.id.txtUsuario);
+        this.campoEmail = (EditText) findViewById(R.id.txtEmail);
+        this.campoClave = (EditText) findViewById(R.id.txtClave);
+        this.campoConfClv = (EditText) findViewById(R.id.txtConfClave);
+        this.campoNumero = (EditText) findViewById(R.id.txtNumero);
+
+        this.campoNumero.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+        this.signup = (Button) findViewById(R.id.btnSignup);
+        this.progressBar = (ProgressBar) findViewById(R.id.progress_bar_signup);
+
+        this.signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Register();
+            }
+        });
+
+    }
+
+    public void Register(){
+        boolean validacion = true;
+        if(Validacion.Vacio(this.campoNombre)){
+            this.campoNombre.setError("El campo Nombre está vacío!");
+            validacion = false;
+            progressBarInvisibleRegisterVisible();
+
+        }
+        if(Validacion.Vacio(this.campoUsuario)){
+            this.campoUsuario.setError("El campo Usuario está vacío!");
+            validacion = false;
+            progressBarInvisibleRegisterVisible();
+        }
+        if(Validacion.Vacio(this.campoEmail)){
+            this.campoEmail.setError("El campo Email está vacío!");
+            validacion = false;
+            progressBarInvisibleRegisterVisible();
+        }
+        if(Validacion.Vacio(this.campoClave)){
+            this.campoEmail.setError("El campo Contraseña está vacío!");
+            validacion = false;
+            progressBarInvisibleRegisterVisible();
+        }
+        if(Validacion.Vacio(this.campoConfClv)){
+            this.campoConfClv.setError("El campo Confirmar Contraseña está vacío!");
+            validacion = false;
+            progressBarInvisibleRegisterVisible();
+        }
+        else if (Validacion.CorreoValido(this.campoEmail, this.campoEmail.getText().toString())){
+            progressBarInvisibleRegisterVisible();
+        }
+
+        if(validacion){
+            progressBarInvisibleRegisterVisible();
+
+            if(!this.campoClave.getText().toString().equals(this.campoConfClv.getText().toString())){
+                this.campoClave.setError("Las contraseñas son diferentes!");
+                this.campoConfClv.setError("Las contraseñas son diferentes!");
+                progressBarInvisibleRegisterVisible();
+            }
+            else {
+                Usuario user = new Usuario(this.campoNombre.getText().toString(),
+                        this.campoUsuario.getText().toString(),
+                        this.campoEmail.getText().toString(),
+                        this.campoClave.getText().toString(),
+                        this.campoConfClv.getText().toString(),
+                        this.campoAdminn.getText().toString(),
+                        this.campoNumero.getText().toString(),
+                        this.campoFecha.getText().toString());
+
+
+            }
+
+        }
+
+    }
+
+    private void progressBarInvisibleRegisterVisible(){
+        progressBar.setVisibility(View.GONE);
+        signup.setVisibility(View.VISIBLE);
+    }
+
+    private void progressBarVisibleRegisterInvisible(){
+        progressBar.setVisibility(View.VISIBLE);
+        signup.setVisibility(View.GONE);
     }
 
     public void LogIn(View view){

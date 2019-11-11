@@ -11,10 +11,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.practica1.Clases.Inicio.ui.category.CategoryFragment;
 import com.example.practica1.Clases.Inicio.ui.home.HomeFragment;
-import com.example.practica1.Clases.Inicio.ui.logout.LogoutFragment;
 import com.example.practica1.Clases.Inicio.ui.product.ProductFragment;
 import com.example.practica1.R;
-import com.example.practica1.SeguimientoFragment;
+import com.example.practica1.Clases.Inicio.ui.seguimiento.SeguimientoFragment;
 import com.google.android.material.navigation.NavigationView;
 import android.content.Intent;
 
@@ -45,6 +44,10 @@ public class InicioActivityAdmin extends AppCompatActivity implements Navigation
 
 
     }
+
+
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

@@ -19,34 +19,37 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/colorPrimary"
-                android:id="@+id/toolbar"
+                android:elevation="2dp"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                android:elevation="2dp">
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
                 <Button
                     android:id="@+id/action_menu"
-                    android:icon="@drawable/ic_menu"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    tools:openDrawer="start"/>
+                    android:icon="@drawable/ic_menu"
+                    tools:openDrawer="start" />
 
                 <SearchView
+                    android:id="@+id/action_search"
                     android:layout_width="190dp"
                     android:layout_height="match_parent" />
 
                 <Button
+                    android:id="@+id/action_notif"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    tools:openDrawer="start"/>
+                    tools:openDrawer="start" />
 
                 <Button
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    tools:openDrawer="start"/>
+                    tools:openDrawer="start" />
+
 
 
 

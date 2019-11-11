@@ -1,4 +1,4 @@
-package com.example.practica1;
+package com.example.practica1.Clases.Inicio.ui.seguimiento;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.practica1.R;
 
 public class SeguimientoFragment extends Fragment {
 

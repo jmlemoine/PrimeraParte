@@ -115,7 +115,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 finish();*/
 
                 }
-                else if(u.equals("") && p.equals("")){
+                else if(u.equals("") || p.equals("")){
                     Toast.makeText(this, "ERROR: Campos vacíos", Toast.LENGTH_LONG).show();
 
                 }else{
