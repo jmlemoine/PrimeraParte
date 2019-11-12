@@ -109,10 +109,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     e.printStackTrace();
                 }
                 checkConnection();
-                /*Intent inicio = new Intent(this, InicioActivityStart.class);
+                Intent inicio = new Intent(this, InicioActivityAdmin.class);
                 inicio.putExtra("Id", us.getId());
                 startActivity(inicio);
-                finish();*/
+                finish();
 
                 }
                 else if(u.equals("") || p.equals("")){
