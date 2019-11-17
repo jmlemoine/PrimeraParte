@@ -29,7 +29,7 @@ public class InicioActivityAdmin extends AppCompatActivity implements Navigation
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_admin);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = /*(Toolbar)*/ findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);

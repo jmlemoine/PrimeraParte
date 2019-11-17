@@ -22,7 +22,7 @@ public class SignUpTask extends AsyncTask<Void, Void, Result> {
     private Response.Listener listener;
     private Response.ErrorListener errorListener;
 
-    public SignUpTask(){
+    public SignUpTask(Usuario user, Response.Listener<JSONObject> listener){
 
     }
 

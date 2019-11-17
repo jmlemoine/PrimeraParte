@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,12 +18,17 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.practica1.AsynTasks.Response;
+import com.example.practica1.AsynTasks.SignUpTask;
 import com.example.practica1.Conexion.ConexionSQLiteHelper;
+import com.example.practica1.Dialog.Message;
 import com.example.practica1.Entidades.Usuario;
 import com.example.practica1.Entidades.conUsuario;
 import com.example.practica1.R;
 import com.example.practica1.Utilidades.Utilidades;
 import com.example.practica1.Utilidades.Validacion;
+
+import org.json.JSONObject;
 
 public class SignupActivity extends AppCompatActivity /*implements View.OnClickListener*/{
 
@@ -118,7 +124,7 @@ public class SignupActivity extends AppCompatActivity /*implements View.OnClickL
         }
 
         if(validacion){
-            progressBarInvisibleRegisterVisible();
+            progressBarVisibleRegisterInvisible();
 
             if(!this.campoClave.getText().toString().equals(this.campoConfClv.getText().toString())){
                 this.campoClave.setError("Las contraseñas son diferentes!");
@@ -134,11 +140,44 @@ public class SignupActivity extends AppCompatActivity /*implements View.OnClickL
                         this.campoAdminn.getText().toString(),
                         this.campoNumero.getText().toString(),
                         this.campoFecha.getText().toString());
+                SignUpTask signupTask = new SignUpTask(user, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        progressBarInvisibleRegisterVisible();
+                        limpiar();
+                        Toast toast = Toast.makeText(applicationContext, "Usuario creado!", Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.TOP, 0, 0);
+                        toast.show();
 
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(Exception error) {
+                        Message.getInstance(applicationContext).errorDialog("["+campoEmail.getText().toString()+"]"+error.getMessage());
+                        progressBarInvisibleRegisterVisible();
+
+                    }
+                });
+                signupTask.execute();
 
             }
 
         }
+        else {
+            progressBarInvisibleRegisterVisible();
+
+        }
+
+    }
+
+    private void limpiar() {
+        this.campoNombre.setText(null);
+        this.campoUsuario.setText(null);
+        this.campoEmail.setText(null);
+        this.campoClave.setText(null);
+        this.campoConfClv.setText(null);
+        this.campoNumero.setText(null);
+        this.campoFecha.setText(null);
 
     }
 
