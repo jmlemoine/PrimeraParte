@@ -5,11 +5,9 @@ import android.util.Log;
 
 import com.example.practica1.Entidades.Usuario;
 import com.example.practica1.Utilidades.HttpConnection;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
-/*import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;*/
-
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,7 +20,7 @@ public class SignUpTask extends AsyncTask<Void, Void, Result> {
     private Response.Listener listener;
     private Response.ErrorListener errorListener;
 
-    public SignUpTask(Usuario user, Response.Listener<JSONObject> listener){
+    public SignUpTask(){
 
     }
 
@@ -34,7 +32,7 @@ public class SignUpTask extends AsyncTask<Void, Void, Result> {
 
     @Override
     protected Result doInBackground(Void... params) {
-        /*final HttpConnection connection = new HttpConnection(REGISTER_URL, "POST");
+        final HttpConnection connection = new HttpConnection(REGISTER_URL, "POST");
         String result;
         if(this.user != null){
             GsonBuilder builder = new GsonBuilder();
@@ -48,9 +46,31 @@ public class SignUpTask extends AsyncTask<Void, Void, Result> {
 
             }
 
-        }*/
+        }
         return null;
 
+    }
+
+    @Override
+    protected void onPostExecute(Result result) {
+        if(result.getResult() != null){
+            try {
+                Log.i("INFORMATION", result.getResult().toString());
+                JSONObject jsonObject = new JSONObject(result.getResult().toString());
+                if(jsonObject.getString("error").equals("false")){
+                    listener.onResponse(jsonObject);
+                }else{
+                    errorListener.onErrorResponse(new Exception(jsonObject.getString("message")));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    protected void onCancelled() {
+        errorListener.onErrorResponse(new Exception("Task cancelled"));
     }
 
 
