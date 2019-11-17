@@ -2,8 +2,6 @@ package com.example.practica1.Clases;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -12,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.practica1.Entidades.Usuario;
 import com.example.practica1.Entidades.conUsuario;
@@ -101,6 +101,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String u = usuario.getText().toString();
                 String p = clave.getText().toString();
                 Usuario us = con.getUsuario(u, p);
+
                 if(con.Login(u, p)==true){
                 Toast.makeText(this, "Datos Correctos", Toast.LENGTH_LONG).show();
                 try {
@@ -109,10 +110,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     e.printStackTrace();
                 }
                 checkConnection();
-                Intent inicio = new Intent(this, InicioActivityAdmin.class);
+                /*Intent inicio = new Intent(this, InicioActivityAdmin.class);
                 inicio.putExtra("Id", us.getId());
                 startActivity(inicio);
-                finish();
+                finish();*/
 
                 }
                 else if(u.equals("") || p.equals("")){
