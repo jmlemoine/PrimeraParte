@@ -14,7 +14,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="88dp"
         android:background="#E9D308"
-        android:onClick="SignUp"
+        android:onClick="Click"
         android:text="Registrarse"
         app:layout_constraintEnd_toStartOf="@+id/btnLogin"
         app:layout_constraintTop_toBottomOf="@+id/txtFecha" />
@@ -180,6 +180,20 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
         app:srcCompat="@drawable/admin" />
 
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSignup"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.106"
+        app:srcCompat="@drawable/phone" />
+
     <ProgressBar
         android:id="@+id/progress_bar_signup"
         style="?android:attr/progressBarStyle"
@@ -214,19 +228,5 @@
         android:hint="No es Admin"
         app:layout_constraintBottom_toBottomOf="@+id/switchAdmin"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="0dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="3dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnSignup"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView8"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.106"
-        app:srcCompat="@drawable/phone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

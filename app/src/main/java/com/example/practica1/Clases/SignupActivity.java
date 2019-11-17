@@ -1,12 +1,7 @@
 package com.example.practica1.Clases;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.view.Gravity;
@@ -18,14 +13,14 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.practica1.AsynTasks.Response;
 import com.example.practica1.AsynTasks.SignUpTask;
-import com.example.practica1.Conexion.ConexionSQLiteHelper;
 import com.example.practica1.Dialog.Message;
 import com.example.practica1.Entidades.Usuario;
 import com.example.practica1.Entidades.conUsuario;
 import com.example.practica1.R;
-import com.example.practica1.Utilidades.Utilidades;
 import com.example.practica1.Utilidades.Validacion;
 
 import org.json.JSONObject;
@@ -67,6 +62,10 @@ public class SignupActivity extends AppCompatActivity /*implements View.OnClickL
 
 
 
+    }
+
+    public void Click(View view){
+        Register();
     }
 
     private void updateUI(){
